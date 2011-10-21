@@ -1,2 +1,12 @@
 <h1>Apps</h1>
 
+<ul>
+<% @apps.each do |app| %>
+  <li>
+    <strong><%= app["title"] %></strong>&nbsp;
+    <%= link_to 'plist', app_path(:id => app["id"], :username => params[:username], :password => params[:password], :format => :plist) %>
+    &nbsp;|&nbsp;
+    <%= link_to 'install', "itms-services://?action=download-manifest&url=#{app_path(:id => app["id"], :format => :plist, :only_path => false, :protocol => 'https')}" %>
+  </li>
+<% end -%>
+</ul>
