@@ -16,7 +16,7 @@ class PhoneGapUser < ActiveRecord::Base
     apps_attributes = JSON.parse(response.body)["apps"]
     apps_attributes.collect! do |attributes|
       {
-        "app_id" => attributes["id"],
+        "app_id" => attributes["id"].to_s,
         "title" => attributes["title"],
         "version" => (attributes["version"].blank? ? "1.0" : attributes["version"]),
         "package" => attributes["package"],
