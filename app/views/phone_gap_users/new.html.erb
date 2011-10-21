@@ -1,0 +1,9 @@
+<h1>Import PhoneGap Apps</h1>
+
+<p><em>Your password will *not* be stored</em></p>
+
+<%= form_for PhoneGapUser.new do |f| %>
+  <%= f.text_field :email, :placeholder => "Email Address" %>
+  <%= password_field_tag :password, '', :placeholder => "Password" %>
+  <%= f.submit "Import Apps" %>
+<% end -%>

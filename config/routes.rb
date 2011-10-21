@@ -1,7 +1,10 @@
 PhonegapOta::Application.routes.draw do
-  root :to => "login#index"
-  match '/apps(.:format)' => 'apps#index'
-  match '/apps/:id(.:format)' => 'apps#show', :as => :app
+  root :to => "phone_gap_users#new"
+  
+  resources :phone_gap_users do
+    resources :apps
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

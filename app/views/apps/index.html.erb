@@ -3,10 +3,10 @@
 <ul>
 <% @apps.each do |app| %>
   <li>
-    <strong><%= app["title"] %></strong>&nbsp;
-    <%= link_to 'plist', app_path(:id => app["id"], :username => params[:username], :password => params[:password], :format => :plist) %>
+    <strong><%= app.title %></strong>&nbsp;
+    <%= link_to 'plist', phone_gap_user_app_path(@user, app, :format => :plist) %>
     &nbsp;|&nbsp;
-    <%= link_to 'install', "itms-services://?action=download-manifest&url=#{app_path(:id => app["id"], :username => params[:username], :password => params[:password], :format => :plist, :only_path => false, :protocol => 'https')}" %>
+    <%= link_to 'install', "itms-services://?action=download-manifest&url=#{phone_gap_user_app_path(@user, app, :format => :plist, :only_path => false)}" %>
   </li>
 <% end -%>
 </ul>

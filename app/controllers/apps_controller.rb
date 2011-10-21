@@ -1,14 +1,11 @@
 class AppsController < ApplicationController
   def index
-    @user = PhoneGapUser.new(params[:username], params[:password])
+    @user = PhoneGapUser.find(params[:phone_gap_user_id])
     @apps = @user.apps
   end
 
   def show
-    @user = PhoneGapUser.new(params[:username], params[:password])
-    @app = @user.apps.select {|app| app["id"].to_s == params[:id].to_s }.first
-    @app["version"] = "1.0" if @app["version"].blank?
-    @app["url"] = ["https://build.phonegap.com", @app["download"]["ios"]].join
+    @app = App.find(params[:id])
 
     render :layout => false
   end

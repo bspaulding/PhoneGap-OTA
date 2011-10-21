@@ -16,6 +16,8 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
+gem 'sqlite3', :groups => [:development, :test]
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
