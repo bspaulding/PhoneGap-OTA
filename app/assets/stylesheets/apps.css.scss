@@ -1,3 +1,12 @@
 // Place all the styles related to the Apps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul#apps {
+  list-style-type: none;
+}
+
+ul#apps li {
+  text-align: left;
+  padding: 10px 0px;
+}

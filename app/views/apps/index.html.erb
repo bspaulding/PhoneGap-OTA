@@ -1,12 +1,11 @@
-<h1>Apps</h1>
+<h1>Apps <small>Tap to Install</small></h1>
 
-<ul>
+<ul id="apps">
 <% @apps.each do |app| %>
   <li>
-    <strong><%= app.title %></strong>&nbsp;
-    <%= link_to 'plist', phone_gap_user_app_path(@user, app, :format => :plist) %>
-    &nbsp;|&nbsp;
-    <%= link_to 'install', "itms-services://?action=download-manifest&url=#{phone_gap_user_app_path(@user, app, :format => :plist, :only_path => false)}" %>
+    <h5><%= app.title %></h5>
+    <%= link_to 'Install', "itms-services://?action=download-manifest&url=#{phone_gap_user_app_path(@user, app, :format => :plist, :only_path => false)}", :class => 'btn large primary' %>
+    <%= link_to 'View plist', phone_gap_user_app_path(@user, app, :format => :plist), :class => 'btn large' %>
   </li>
 <% end -%>
 </ul>
